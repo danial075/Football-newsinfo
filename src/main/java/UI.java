@@ -1,3 +1,8 @@
+/**
+ *
+ * Author:    Danial Sheikh
+ * The UI Class is used to interact with the user to see which data they want to access
+ **/
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -26,6 +31,9 @@ public class UI {
                 t.establishConnection();
             }
             if (option == 3) {
+                Leaguetable l = new Leaguetable();
+                l.establishConnection();
+
 
             } else {
                 System.out.println("Application has quit");

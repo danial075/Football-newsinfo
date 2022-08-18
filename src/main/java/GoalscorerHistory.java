@@ -1,3 +1,8 @@
+/**
+ * Author:    Danial Sheikh
+ * The GoalscorerHistory Class is used to create an object to store the Json data coming in
+ **/
+
 public class GoalscorerHistory {
 int rank;
 String name;

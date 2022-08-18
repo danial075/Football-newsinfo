@@ -1,4 +1,7 @@
-// this class displays the top scorer throughout premier league history.
+/**
+ * Author:    Danial Sheikh
+ * The Topscorer Class is used to display  the top scorer throughout premier league history.
+ **/
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -59,20 +62,14 @@ public class Topscorer {
             System.out.println(responseContent.toString().getClass().getSimpleName());
 
             Gson g = new Gson();
+            // Creating a new type token tells gson to convert the JSON data to a list of GoalscorerHistory objects
+            Type GoalscorerHistory = new TypeToken<ArrayList<GoalscorerHistory>>() {
+            }.getType();
 
-           Type GoalscorerHistory = new TypeToken<ArrayList<GoalscorerHistory>>(){}.getType();
-            ArrayList<GoalscorerHistory> goalHistory = g.fromJson(responseContent.toString(),GoalscorerHistory);
-//            GoalscorerHistory[] footballer = g.fromJson(responseContent.toString(), GoalscorerHistory[].class);
-            // On the LHS new array of type GoalscorerHistory
-            // and on the rhs using the parser and fromJson method which allows us to read the json data in an array format
+            // Deserialization of the JSON data into a list of GoalscorerHistory objects
+            ArrayList<GoalscorerHistory> goalHistory = g.fromJson(responseContent.toString(), GoalscorerHistory);
 
-
-
-//            for (GoalscorerHistory i : footballer) {
-//                GoalscorerHistory j = new GoalscorerHistory(i.getRank(), i.getName(), i.getNationality(), i.getStat());
-//                goalHistory.add(j);
-//            }
-//            ArrayList<GoalscorerHistory> goalHistory = new ArrayList<>();
+            // This loops round and prints the players names and stats out
             for (int i = 0; i < goalHistory.size(); i++) {
                 System.out.println("rank:" + goalHistory.get(i).getRank() + " name:" + goalHistory.get(i).getName() + " stat:" + goalHistory.get(i).getStat());
             }
